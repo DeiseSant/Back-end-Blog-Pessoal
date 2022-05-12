@@ -28,7 +28,7 @@ public class TemaModel {
 	private List<PostagemModel> postagem;
 
 	
-	//Getters and setters
+	//Get e set
 	public Long getId() {
 		return id;
 	}
