@@ -1,7 +1,7 @@
 package com.generation.blogpessoal.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +11,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 @Entity
 @Table(name = "tb_usuarios")
@@ -22,8 +26,9 @@ public class UsuarioModel {
 
   private String nome;
 
-  @NotNull
-  @Email(message = "O usuário deve ser um email valido ex:maria@email.com")
+  @Schema(example = "email@email.com.br")
+  @NotNull (message = "Campo obrigatório")
+  @Email(message = "O usuário deve ser um email valido ex:joãoemaria@email.com")
   private String usuario;
 
   @NotNull
